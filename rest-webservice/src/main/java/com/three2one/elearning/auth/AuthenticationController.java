@@ -22,6 +22,7 @@ public class AuthenticationController {
 
 	@GetMapping(path = "/api/authenticate")
 	public Student authenticate(Authentication authentication) {
+		logger.info("Request-By: " + authentication.getName() + ", Action: authenticate ");
 		Student student = studentRepository.findByUsername(authentication.getName());
 		return student;
 	}
